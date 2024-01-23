@@ -25,22 +25,22 @@ def notify_producao(body):
 
     try:
         #response = requests.get(url, data=json.dumps(body), headers={'Content-Type': 'application/json'})
-        response = requests.get(url)
+        response = requests.get(url, headers={'Content-Type': 'application/json'})
         print('Response: ', response.json())
 
-        if response.status_code == 201:
+        if response.status_code > 199 and response.status_code < 300:
             return {
-                'statusCode': 200,
-                'body': json.dumps('Payment {payment_id} Message processed successfully!')
+                'statusCode': response.status_code,
+                'body': json.dumps('Payment Message processed successfully!')
             }
         else:
             return {
                 'statusCode': response.status_code,
-                'body': json.dumps('Payment {payment_id} Message Error!')
+                'body': json.dumps('Payment Message Error!')
             }
     except Exception as e:
         print('Exception error: ', e)
         return {
             'statusCode': 500,
-            'body': json.dumps('Payment {payment_id} Message Exception Error!')
+            'body': json.dumps('Payment Message Exception Error!')
         }
