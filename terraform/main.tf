@@ -66,7 +66,8 @@ resource "aws_lambda_function" "lambda_pagamentos" {
   environment {
     variables = {
       "URL_BASE" = var.url_base
-      "ENDPOINT" = "producao_pedidos"
+      "ENDPOINT_PRODUCAO" = "producao_pedidos"
+      "ENDPOINT_PAGAMENTO" = "pagamentos/id_pagamento"
       "PORT"     = "8000"
     }
   }
