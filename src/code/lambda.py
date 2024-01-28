@@ -16,7 +16,7 @@ def get_pagamento(body):
 
     url_base = os.environ['URL_BASE']
     port = os.environ['PORT']
-    endpoint = os.environ['ENDPOINT'].replace('id_pagamento', str(payment_id))
+    endpoint = os.environ['ENDPOINT_PAGAMENTO'].replace('id_pagamento', str(payment_id))
 
     url = url_base + ':' + port +  '/' + endpoint
 
