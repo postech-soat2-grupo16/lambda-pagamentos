@@ -55,7 +55,7 @@ def notify_producao(body):
     print('REQUEST URL: ', url)
 
     try:
-        response = requests.post(url, data=json.dumps(body), headers={'Content-Type': 'application/json'})
+        response = requests.post(url, data=json.dumps(payment), headers={'Content-Type': 'application/json'})
         print('Response: ', response.text)
 
         if response.status_code > 199 and response.status_code < 300:
